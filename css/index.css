@@ -1,0 +1,65 @@
+/* fonts */ 
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  font-family: Poppins;
+}
+
+
+header {
+  background: #ABB8C3 ;
+}
+
+body{
+  background-image: url(../img/fondo-index.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.logo-1{
+  width: 200px;
+}
+.logo-2{
+  width: 200px;
+}
+
+nav ul{
+  background-color: #C31C78;
+  width: 100%;
+  list-style: none;
+  text-align: center;
+}
+nav li{
+  display: inline-flex;
+  
+}
+nav a{
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  width: 200px;
+}
+
+.submenu {
+  position: relative;
+}
+
+.submenu ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #C31C78;
+  min-width: 120px;
+  padding: 10px 0;
+  z-index: 1;
+}
+
+.submenu:hover ul {
+  display: block;
+}
+
+nav li:hover {
+  background-color: #ABB8C3;
+}

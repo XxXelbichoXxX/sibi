@@ -1,0 +1,170 @@
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+CREATE TABLE `bit_equipo` (
+  `serie` varchar(20) NOT NULL,
+  `serieE` varchar(20) NOT NULL,
+  `tipo` varchar(20) NOT NULL,
+  `marca` varchar(20) NOT NULL,
+  `modelo` varchar(20) NOT NULL,
+  `numInv` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `documento` (
+  `idDoc` int(11) NOT NULL,
+  `serie` varchar(50) NOT NULL,
+  `tipoDoc` varchar(10) NOT NULL,
+  `archivo` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `empleado` (
+  `claveEmpleado` varchar(13) NOT NULL,
+  `claveArea` varchar(50) NOT NULL,
+  `junta` varchar(50) NOT NULL,
+  `nombreEmpleado` varchar(50) NOT NULL,
+  `cargo` varchar(100) NOT NULL,
+  `correo` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `equipo` (
+  `serie` varchar(20) NOT NULL,
+  `nombreEmpleado` varchar(100) NOT NULL,
+  `claveArea` varchar(50) DEFAULT NULL,
+  `junta` varchar(50) DEFAULT NULL,
+  `marca` varchar(20) DEFAULT NULL,
+  `modelo` varchar(20) DEFAULT NULL,
+  `numInv` varchar(30) DEFAULT NULL,
+  `sistema` varchar(10) DEFAULT NULL,
+  `procesador` varchar(30) DEFAULT NULL,
+  `ram` varchar(6) DEFAULT NULL,
+  `mac` varchar(18) DEFAULT NULL,
+  `dd` varchar(20) NOT NULL,
+  `ip` varchar(18) DEFAULT NULL,
+  `conexion` varchar(10) DEFAULT NULL,
+  `perfil` varchar(20) NOT NULL,
+  `propiedad` varchar(10) DEFAULT NULL,
+  `resguardo` text DEFAULT NULL,
+  `baja` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `impsca` (
+  `serie` varchar(20) NOT NULL,
+  `tipo` varchar(15) NOT NULL,
+  `nombreEmpleado` varchar(100) NOT NULL,
+  `claveArea` varchar(50) NOT NULL,
+  `junta` varchar(50) NOT NULL,
+  `marca` varchar(20) NOT NULL,
+  `modelo` varchar(20) NOT NULL,
+  `numInv` varchar(30) NOT NULL,
+  `mac` varchar(18) NOT NULL,
+  `ip` varchar(18) NOT NULL,
+  `propiedad` varchar(10) NOT NULL,
+  `resguardo` text DEFAULT NULL,
+  `baja` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `laptop` (
+  `serie` varchar(20) NOT NULL,
+  `nombreEmpleado` varchar(100) NOT NULL,
+  `claveArea` varchar(50) NOT NULL,
+  `junta` varchar(50) NOT NULL,
+  `marca` varchar(20) NOT NULL,
+  `modelo` varchar(20) NOT NULL,
+  `numInv` varchar(30) NOT NULL,
+  `sistema` varchar(10) NOT NULL,
+  `procesador` varchar(30) NOT NULL,
+  `ram` varchar(6) NOT NULL,
+  `dd` varchar(20) NOT NULL,
+  `mac` varchar(18) NOT NULL,
+  `ip` varchar(18) NOT NULL,
+  `propiedad` varchar(10) NOT NULL,
+  `perfil` varchar(20) NOT NULL,
+  `MACD` varchar(50) NOT NULL,
+  `serieD` varchar(50) NOT NULL,
+  `resguardo` text NOT NULL,
+  `baja` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `login` (
+  `id` int(11) NOT NULL,
+  `usuario` varchar(50) NOT NULL,
+  `pass` varchar(50) NOT NULL,
+  `tipo_usuario` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `login` (`id`, `usuario`, `pass`, `tipo_usuario`) VALUES
+(1, 'admin', '123', 'Administrador');
+
+CREATE TABLE `telefonia` (
+  `serie` varchar(20) NOT NULL,
+  `nombreEmpleado` varchar(100) NOT NULL,
+  `claveArea` varchar(50) NOT NULL,
+  `junta` varchar(50) NOT NULL,
+  `marca` varchar(20) NOT NULL,
+  `modelo` varchar(20) NOT NULL,
+  `numInv` varchar(30) NOT NULL,
+  `extension` varchar(10) NOT NULL,
+  `mac` varchar(18) NOT NULL,
+  `ip` varchar(18) NOT NULL,
+  `resguardo` text NOT NULL,
+  `propiedad` varchar(50) NOT NULL,
+  `baja` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `ups` (
+  `serie` varchar(20) NOT NULL,
+  `tipo` varchar(15) NOT NULL,
+  `nombreEmpleado` varchar(100) NOT NULL,
+  `claveArea` varchar(50) NOT NULL,
+  `junta` varchar(50) NOT NULL,
+  `marca` varchar(20) NOT NULL,
+  `modelo` varchar(20) NOT NULL,
+  `numInv` varchar(30) NOT NULL,
+  `mac` varchar(18) NOT NULL,
+  `ip` varchar(18) NOT NULL,
+  `propiedad` varchar(10) NOT NULL,
+  `resguardo` text NOT NULL,
+  `baja` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+ALTER TABLE `bit_equipo`
+  ADD PRIMARY KEY (`serie`),
+  ADD KEY `FK_EQP_BIT` (`serieE`);
+
+ALTER TABLE `documento`
+  ADD PRIMARY KEY (`idDoc`);
+
+ALTER TABLE `empleado`
+  ADD PRIMARY KEY (`claveEmpleado`);
+
+ALTER TABLE `equipo`
+  ADD PRIMARY KEY (`serie`);
+
+ALTER TABLE `impsca`
+  ADD PRIMARY KEY (`serie`);
+
+ALTER TABLE `laptop`
+  ADD PRIMARY KEY (`serie`);
+
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `telefonia`
+  ADD PRIMARY KEY (`serie`);
+
+ALTER TABLE `ups`
+  ADD PRIMARY KEY (`serie`);
+
+
+ALTER TABLE `documento`
+  MODIFY `idDoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+
+ALTER TABLE `login`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+
+ALTER TABLE `bit_equipo`
+  ADD CONSTRAINT `FK_EQP_BIT` FOREIGN KEY (`serieE`) REFERENCES `equipo` (`serie`);
+COMMIT;

@@ -1,0 +1,73 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* Estilos generales */
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #ABB8C3; /* Color de fondo */
+}
+
+.container {
+  max-width: 600px;
+  padding: 30px;
+  text-align: center;
+  margin: auto; /* Centrar en pantalla */
+}
+
+h1 {
+  font-family: 'Poppins', Arial, sans-serif;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+/* Estilos de los campos */
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+input {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #8F399E; /* Color del contorno de los campos */
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+textarea {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #8F399E; /* Color del contorno de los campos */
+  border-radius: 5px;
+  margin-bottom: 20px;
+  resize: vertical; /* Permite ajustar verticalmente el tamaño del textarea */
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+button[type="submit"] {
+  background-color: #8F399E; /* Color de fondo del botón */
+  color: #fff; /* Color de texto del botón */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+button[type="submit"]:hover {
+  background-color: #6E2A7E; /* Color de fondo del botón al pasar el cursor */
+}
